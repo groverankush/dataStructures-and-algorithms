@@ -1,29 +1,54 @@
 package com.ankushgrover.dataStructures.heap;
 
+import java.util.Arrays;
+
 public class Heap {
 
     private int[] arr;
-    private int last;
+    private int index;
 
     public Heap(int size) {
-
         this.arr = new int[size];
-        last = 0;
+        this.index = 0;
+    }
+
+    private boolean isFull() {
+
+        return index == arr.length;
 
     }
 
     public void add(int element) {
 
-        this.arr[last++] = element;
+        if (isFull())
+            return;
 
+        arr[index] = element;
+        adjustHeap(index++);
     }
 
-    private void heapify(int index) {
+    private void adjustHeap(int index) {
+
+        if (index <= 0)
+            return;
 
         int parent = (int) Math.ceil(index / 2.0) - 1;
 
-        String s;
+        if (arr[parent] < arr[index]) {
 
+            int temp = arr[index];
+            arr[index] = arr[parent];
+            arr[parent] = temp;
+
+            adjustHeap(parent);
+        }
+
+
+    }
+
+    public String toString() {
+
+        return "Heap is" + Arrays.toString(arr);
     }
 
 }
