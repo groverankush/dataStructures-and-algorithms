@@ -1,5 +1,9 @@
 package com.ankushgrover.algorithms.sort;
 
+import com.ankushgrover.dataStructures.heap.Heap;
+
+import java.util.Arrays;
+
 public class HeapSort {
 
     private int[] arr;
@@ -10,9 +14,11 @@ public class HeapSort {
 
         heapify();
         sort();
+    }
 
-        //System.out.println("HeapSort:");
-        //System.out.println(Arrays.toString(arr));
+    public HeapSort(Heap heap){
+        this.arr = heap.getHeap();
+        sort();
     }
 
     private void heapify() {
@@ -20,14 +26,11 @@ public class HeapSort {
         for (int i = arr.length - 1; i >= 0; i--) {
             checkDescendants(i, arr.length);
         }
-        //System.out.println("Heapify: ");
-        //System.out.println(Arrays.toString(arr));
-
     }
 
-    private void sort(){
+    private void sort() {
 
-        for(int index = arr.length-1; index >0; index--){
+        for (int index = arr.length - 1; index > 0; index--) {
 
 
             int temp = arr[0];
@@ -63,5 +66,7 @@ public class HeapSort {
         }
 
     }
+
+
 
 }

@@ -42,8 +42,10 @@ public class Heap {
 
             adjustHeap(parent);
         }
+    }
 
-
+    public int[] getHeap() {
+        return arr;
     }
 
     public String toString() {
