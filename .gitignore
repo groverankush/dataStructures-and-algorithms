@@ -1,3 +1,4 @@
 .idea
 *.iml
 *.class
+/out/production/dataStructures-and-algorithms/META-INF/dataStructures-and-algorithms.kotlin_module
