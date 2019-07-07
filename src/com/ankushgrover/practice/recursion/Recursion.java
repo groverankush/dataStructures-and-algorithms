@@ -1,15 +1,18 @@
 package com.ankushgrover.practice.recursion;
 
 
+import java.util.Arrays;
+
 public class Recursion {
 
     public static void main(String[] args) {
 
-        /*int [] arr = {1,2,2,5,6};
+        /*
         System.out.println(lastIndex(arr, 0, 2));*/
 
-        pattern(5, 0, 0);
-
+        int[] arr = {6, 4, 5, 3, 9, 1};
+        bubbleSort(arr, 0, arr.length - 1);
+        System.out.println(Arrays.toString(arr));
     }
 
 
@@ -113,36 +116,36 @@ public class Recursion {
 
     }
 
-    private static int fib(int n){
+    private static int fib(int n) {
 
-        if(n < 1)
+        if (n < 1)
             return 0;
 
-        if(n == 1)
+        if (n == 1)
             return 1;
 
 
-        return fib(n-1) + fib(n-2);
+        return fib(n - 1) + fib(n - 2);
 
     }
 
-    private static boolean  isSorted(int [] arr, int index){
-        if(index > arr.length-2)
+    private static boolean isSorted(int[] arr, int index) {
+        if (index > arr.length - 2)
             return true;
 
-        if(arr[index] > arr[index+1])
+        if (arr[index] > arr[index + 1])
             return false;
 
-        return isSorted(arr, index+1);
+        return isSorted(arr, index + 1);
 
     }
 
-    private static int firstIndex(int [] arr, int  index, int data){
+    private static int firstIndex(int[] arr, int index, int data) {
 
-        if(index == arr.length )
+        if (index == arr.length)
             return -1;
 
-        if(arr[index] == data)
+        if (arr[index] == data)
             return index;
 
         return firstIndex(arr, index + 1, data);
@@ -150,16 +153,16 @@ public class Recursion {
 
     }
 
-    private static int lastIndex(int [] arr, int index, int data){
+    private static int lastIndex(int[] arr, int index, int data) {
 
-        if(index == arr.length)
+        if (index == arr.length)
             return -1;
 
         int i = lastIndex(arr, index + 1, data);
 
-        if(i == -1){
+        if (i == -1) {
 
-            if(arr[index] == data)
+            if (arr[index] == data)
                 return index;
 
             return -1;
@@ -175,31 +178,55 @@ public class Recursion {
      * ***
      * ****
      * *****
+     *
      * @param n
      * @param row
      * @param col
      */
-    private static void pattern(int n, int row, int col){
+    private static void pattern(int n, int row, int col) {
 
-        if(n<1)
+        if (n < 1)
             return;
 
-        if(col <=  row){
+        if (col <= row) {
             System.out.print("*");
         }
 
-        if(row == col){
+        if (row == col) {
             System.out.print("\n");
-            n = n-1;
-            row = row+1;
+            n = n - 1;
+            row = row + 1;
             col = 0;
-        }else{
+        } else {
             col++;
         }
 
 
-        pattern(n,row,col);
+        pattern(n, row, col);
 
     }
+
+    private static void bubbleSort(int[] arr, int start, int end) {
+
+        if (end == 0)
+            return;
+
+        if (arr[start] > arr[start + 1]) {
+            int temp = arr[start];
+            arr[start] = arr[start + 1];
+            arr[start+1] = temp;
+        }
+
+        if (start == end - 1) {
+
+            start = 0;
+            end = end - 1;
+
+        } else
+            start = start + 1;
+
+        bubbleSort(arr, start, end);
+    }
+
 
 }
