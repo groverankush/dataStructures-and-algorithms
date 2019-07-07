@@ -5,9 +5,10 @@ public class Recursion {
 
     public static void main(String[] args) {
 
-        int [] arr = {1,2,2,5,6};
+        /*int [] arr = {1,2,2,5,6};
+        System.out.println(lastIndex(arr, 0, 2));*/
 
-        System.out.println(firstIndex(arr, 0, 7));
+        pattern(5, 0, 0);
 
     }
 
@@ -146,6 +147,58 @@ public class Recursion {
 
         return firstIndex(arr, index + 1, data);
 
+
+    }
+
+    private static int lastIndex(int [] arr, int index, int data){
+
+        if(index == arr.length)
+            return -1;
+
+        int i = lastIndex(arr, index + 1, data);
+
+        if(i == -1){
+
+            if(arr[index] == data)
+                return index;
+
+            return -1;
+
+        }
+        return i;
+
+    }
+
+    /**
+     * *
+     * **
+     * ***
+     * ****
+     * *****
+     * @param n
+     * @param row
+     * @param col
+     */
+    private static void pattern(int n, int row, int col){
+
+        if(n<1)
+            return;
+
+        if(col <=  row){
+            System.out.print("*");
+        }
+
+        if(row == col){
+            System.out.print("\n");
+            n = n-1;
+            row = row+1;
+            col = 0;
+        }else{
+            col++;
+        }
+
+
+        pattern(n,row,col);
 
     }
 
