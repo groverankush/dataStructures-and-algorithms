@@ -7,7 +7,7 @@ public class Recursion {
 
         int [] arr = {1,2,2,5,6};
 
-        System.out.println(isSorted(arr, 0));
+        System.out.println(firstIndex(arr, 0, 7));
 
     }
 
@@ -133,6 +133,19 @@ public class Recursion {
             return false;
 
         return isSorted(arr, index+1);
+
+    }
+
+    private static int firstIndex(int [] arr, int  index, int data){
+
+        if(index == arr.length )
+            return -1;
+
+        if(arr[index] == data)
+            return index;
+
+        return firstIndex(arr, index + 1, data);
+
 
     }
 
