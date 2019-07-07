@@ -5,8 +5,9 @@ public class Recursion {
 
     public static void main(String[] args) {
 
+        int [] arr = {1,2,2,5,6};
 
-        System.out.println(fib(7));
+        System.out.println(isSorted(arr, 0));
 
     }
 
@@ -121,6 +122,17 @@ public class Recursion {
 
 
         return fib(n-1) + fib(n-2);
+
+    }
+
+    private static boolean  isSorted(int [] arr, int index){
+        if(index > arr.length-2)
+            return true;
+
+        if(arr[index] > arr[index+1])
+            return false;
+
+        return isSorted(arr, index+1);
 
     }
 
