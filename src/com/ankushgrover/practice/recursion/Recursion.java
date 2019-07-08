@@ -7,12 +7,11 @@ public class Recursion {
 
     public static void main(String[] args) {
 
-        /*
-        System.out.println(lastIndex(arr, 0, 2));*/
 
-        int[] arr = {6, 4, 5, 3, 9, 1};
-        bubbleSort(arr, 0, arr.length - 1);
-        System.out.println(Arrays.toString(arr));
+        int[] arr = {6, 4, 5, 6, 9, 6};
+
+        System.out.println(Arrays.toString(allIndices(arr, 0, 6, 0)));
+
     }
 
 
@@ -226,6 +225,29 @@ public class Recursion {
             start = start + 1;
 
         bubbleSort(arr, start, end);
+    }
+
+    private static int []  allIndices(int [] arr, int start, int data, int count){
+
+        if(start == arr.length){
+            return new int [] {-1};
+        }
+
+        if(arr[start] == data){
+            count++;
+        }
+
+        int [] r = allIndices(arr, start+1, data, count);
+
+        if(r.length == 1 && r[0] == -1){
+            r = new int[count];
+        }
+
+        if(arr[start] == data){
+            r[count-1] =start;
+        }
+
+        return r;
     }
 
 
