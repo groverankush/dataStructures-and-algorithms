@@ -1,16 +1,14 @@
 package com.ankushgrover.practice.recursion;
 
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Recursion {
 
     public static void main(String[] args) {
 
 
-        int[] arr = {6, 4, 5, 6, 9, 6};
-
-        System.out.println(Arrays.toString(allIndices(arr, 0, 6, 0)));
+        System.out.println(getSubsequence("abc").toString());
 
     }
 
@@ -213,7 +211,7 @@ public class Recursion {
         if (arr[start] > arr[start + 1]) {
             int temp = arr[start];
             arr[start] = arr[start + 1];
-            arr[start+1] = temp;
+            arr[start + 1] = temp;
         }
 
         if (start == end - 1) {
@@ -227,27 +225,66 @@ public class Recursion {
         bubbleSort(arr, start, end);
     }
 
-    private static int []  allIndices(int [] arr, int start, int data, int count){
+    /**
+     * find all the occurrences of {@code data} in the array {@code arr}.
+     *
+     * @param arr
+     * @param start
+     * @param data
+     * @param count
+     * @return
+     */
+    private static int[] allIndices(int[] arr, int start, int data, int count) {
 
-        if(start == arr.length){
-            return new int [] {-1};
+        if (start == arr.length) {
+            return new int[]{-1};
         }
 
-        if(arr[start] == data){
+        if (arr[start] == data) {
             count++;
         }
 
-        int [] r = allIndices(arr, start+1, data, count);
+        int[] r = allIndices(arr, start + 1, data, count);
 
-        if(r.length == 1 && r[0] == -1){
+        if (r.length == 1 && r[0] == -1) {
             r = new int[count];
         }
 
-        if(arr[start] == data){
-            r[count-1] =start;
+        if (arr[start] == data) {
+            r[count - 1] = start;
         }
 
         return r;
+    }
+
+
+    //********************************************* Part 2 ********************************************************
+
+    /**
+     * for input "abc" out will be -> ["", a, b, ab, c, ac, bc, abc]
+     * @param str
+     * @return
+     */
+    private static ArrayList<String> getSubsequence(String str) {
+
+        if (str.equals("")) {
+            ArrayList<String> list = new ArrayList<>();
+            list.add("");
+            return list;
+        }
+
+        char cc = str.charAt(0);
+
+        String ros = str.substring(1);
+        ArrayList<String> result = new ArrayList<>();
+        ArrayList<String> recResult = getSubsequence(ros);
+
+        for (String s : recResult) {
+            result.add(s);
+            result.add(cc + s);
+        }
+        return result;
+
     }
 
 
