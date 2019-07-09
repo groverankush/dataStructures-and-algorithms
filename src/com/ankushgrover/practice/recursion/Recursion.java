@@ -8,8 +8,11 @@ public class Recursion {
     public static void main(String[] args) {
 
 
-        System.out.println(getSubsequence("abc").toString());
+        //System.out.println(getSubsequence("abc").toString());
 
+        long prev = System.nanoTime();
+        System.out.println(getPermutations("abc").toString());
+        System.out.println("Time Taken: " + (System.nanoTime() - prev));
     }
 
 
@@ -262,6 +265,7 @@ public class Recursion {
 
     /**
      * for input "abc" out will be -> ["", a, b, ab, c, ac, bc, abc]
+     *
      * @param str
      * @return
      */
@@ -282,6 +286,39 @@ public class Recursion {
         for (String s : recResult) {
             result.add(s);
             result.add(cc + s);
+        }
+        return result;
+
+    }
+
+    /**
+     * If input is "abc" output -> [abc, bac, bca, acb, cab, cba]
+     * @param s
+     * @return
+     */
+    private static ArrayList<String> getPermutations(String s) {
+
+        if (s.length() == 1) {
+            ArrayList<String> list = new ArrayList<String>();
+            list.add(s);
+            return list;
+        }
+
+        String first = s.substring(0, 1);
+        String second = s.substring(1);
+
+        ArrayList<String> permutations = getPermutations(second);
+        ArrayList<String> result = new ArrayList<String>();
+
+        for (String perm : permutations) {
+
+            StringBuilder builder = new StringBuilder(perm);
+            for (int i = 0; i <= builder.length(); i++) {
+                result.add(builder.insert(i, first).toString());
+                builder.replace(i, i + 1, "");
+            }
+
+
         }
         return result;
 
