@@ -11,7 +11,7 @@ public class Recursion {
         //System.out.println(getSubsequence("abc").toString());
 
         long prev = System.nanoTime();
-        System.out.println(getBoardPath(0, 10).toString());
+        System.out.println(getMazePath(0, 0, 2, 2).toString());
         System.out.println("Time Taken: " + (System.nanoTime() - prev));
     }
 
@@ -326,7 +326,7 @@ public class Recursion {
     }
 
     /**
-     * Determine all the ways to reach from 0 to 10.
+     * Determine all the ways to reach from 0 to 10 on a roll of die.
      * <p>
      * Example {1111111111,111111112,11111113, 91, 82}
      *
@@ -358,5 +358,38 @@ public class Recursion {
         return result;
     }
 
+    /**
+     * Get all the possible paths from {0,0} to {row, col} by using one horizontal / vertical move at a time.
+     * @param ch
+     * @param cv
+     * @param row
+     * @param col
+     * @return
+     */
+    private static ArrayList<String> getMazePath(int ch, int cv, int row, int col) {
+
+        if (ch == row - 1 && cv == col - 1) {
+            ArrayList<String> bl = new ArrayList<>();
+            bl.add("");
+            return bl;
+        }
+
+        if (ch == row || cv == col) {
+            return new ArrayList<String>();
+        }
+
+        ArrayList<String> result = new ArrayList<>();
+        for (int i = 0; i < 2; i++) {
+            ArrayList<String> list = getMazePath(i == 0 ? ch + 1 : ch, i == 1 ? cv + 1 : cv, row, col);
+
+            for (String path : list) {
+                result.add(path + (i == 0 ? "H" : "V"));
+            }
+
+        }
+
+        return result;
+
+    }
 
 }
