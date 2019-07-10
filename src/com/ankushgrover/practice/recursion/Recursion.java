@@ -11,7 +11,7 @@ public class Recursion {
         //System.out.println(getSubsequence("abc").toString());
 
         long prev = System.nanoTime();
-        System.out.println(getPermutations("abc").toString());
+        System.out.println(getBoardPath(0, 10).toString());
         System.out.println("Time Taken: " + (System.nanoTime() - prev));
     }
 
@@ -293,6 +293,7 @@ public class Recursion {
 
     /**
      * If input is "abc" output -> [abc, bac, bca, acb, cab, cba]
+     *
      * @param s
      * @return
      */
@@ -322,6 +323,39 @@ public class Recursion {
         }
         return result;
 
+    }
+
+    /**
+     * Determine all the ways to reach from 0 to 10.
+     * <p>
+     * Example {1111111111,111111112,11111113, 91, 82}
+     *
+     * @param cur
+     * @param end
+     * @return
+     */
+    private static ArrayList<String> getBoardPath(int cur, int end) {
+
+        if (cur == end) {
+            ArrayList<String> list = new ArrayList<>();
+            list.add("");
+            return list;
+        }
+
+        if (cur > end) {
+            return new ArrayList<>();
+        }
+
+        ArrayList<String> result = new ArrayList<String>();
+        for (int dice = 1; dice <= 6; dice++) {
+            ArrayList<String> rr = getBoardPath(cur + dice, end);
+
+            for (String s : rr) {
+                result.add(dice + s);
+            }
+        }
+
+        return result;
     }
 
 
