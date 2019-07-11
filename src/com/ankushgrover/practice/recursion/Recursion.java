@@ -383,7 +383,7 @@ public class Recursion {
             ArrayList<String> list = getMazePath(i == 0 ? ch + 1 : ch, i == 1 ? cv + 1 : cv, row, col);
 
             for (String path : list) {
-                result.add(path + (i == 0 ? "H" : "V"));
+                result.add(path + (i == 0 ? "V" : "H"));
             }
 
         }
