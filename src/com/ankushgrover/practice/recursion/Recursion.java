@@ -11,7 +11,7 @@ public class Recursion {
         //System.out.println(getSubsequence("abc").toString());
 
         long prev = System.nanoTime();
-        System.out.println(getMazePath(0, 0, 2, 2).toString());
+        System.out.println(getMazePathDiagonal(0, 0, 3, 3).toString());
         System.out.println("Time Taken: " + (System.nanoTime() - prev));
     }
 
@@ -360,6 +360,7 @@ public class Recursion {
 
     /**
      * Get all the possible paths from {0,0} to {row, col} by using one horizontal / vertical move at a time.
+     *
      * @param ch
      * @param cv
      * @param row
@@ -386,6 +387,39 @@ public class Recursion {
                 result.add(path + (i == 0 ? "V" : "H"));
             }
 
+        }
+
+        return result;
+
+    }
+
+    private static ArrayList<String> getMazePathDiagonal(int ch, int cv, int row, int col) {
+
+        if (ch == row - 1 && cv == col - 1) {
+            ArrayList<String> bl = new ArrayList<>();
+            bl.add("");
+            return bl;
+        }
+
+        if (ch == row || cv == col) {
+            return new ArrayList<String>();
+        }
+
+        ArrayList<String> result = new ArrayList<>();
+
+        ArrayList<String> hl  = getMazePathDiagonal(ch, cv+1, row, col);
+        for(String path : hl){
+            result.add(path + "H");
+        }
+
+         hl  = getMazePathDiagonal(ch+1, cv, row, col);
+        for(String path : hl){
+            result.add(path + "V");
+        }
+
+        hl  = getMazePathDiagonal(ch+1, cv+1, row, col);
+        for(String path : hl){
+            result.add(path + "D");
         }
 
         return result;
