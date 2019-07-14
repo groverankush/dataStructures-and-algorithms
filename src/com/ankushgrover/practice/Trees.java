@@ -10,11 +10,48 @@ public class Trees {
     public static void main(String[] args) {
         NodeT root = makeTree();
         print(root);
-        zigZagTraversal(root);
+        System.out.println("InOrder:");
+        inOrder(root);
+        System.out.println();
+        System.out.println("PreOrder:");
+        preOrder(root);
+        System.out.println();
+        System.out.println("PostOrder:");
+        postOrder(root);
+        System.out.println();
 
     }
 
-    private static void zigZagTraversal(NodeT root){
+    private static void inOrder(NodeT node) {
+        if (node == null)
+            return;
+
+        inOrder(node.left);
+        System.out.print(node.value + " ");
+        inOrder(node.right);
+    }
+
+    private static void preOrder(NodeT node) {
+        if (node == null)
+            return;
+
+        System.out.print(node.value + " ");
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+
+
+    private static void postOrder(NodeT node) {
+        if (node == null)
+            return;
+
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.print(node.value + " ");
+    }
+
+
+    private static void zigZagTraversal(NodeT root) {
 
         Stack<NodeT> left = new Stack<>();
         Stack<NodeT> right = new Stack<>();
@@ -24,23 +61,21 @@ public class Trees {
         boolean isLeft = true;
 
         StringBuilder builder = new StringBuilder();
-        while(!left.isEmpty() || !right.isEmpty()){
+        while (!left.isEmpty() || !right.isEmpty()) {
 
 
             Stack<NodeT> stack = isLeft ? left : right;
 
             NodeT node = stack.pop();
-            if(isLeft){
-                if(node.left!=null)
+            if (isLeft) {
+                if (node.left != null)
                     right.push(node.left);
-                if(node.right!=null)
+                if (node.right != null)
                     right.push(node.right);
-            }
-
-            else{
-                if(node.right!=null)
+            } else {
+                if (node.right != null)
                     left.push(node.right);
-                if(node.left!=null)
+                if (node.left != null)
                     left.push(node.left);
             }
 
@@ -53,7 +88,6 @@ public class Trees {
 
         System.out.println(builder.toString());
     }
-
 
 
     private static void levelOrderTraversal(NodeT root) {
