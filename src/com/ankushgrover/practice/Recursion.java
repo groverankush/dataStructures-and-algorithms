@@ -1,4 +1,4 @@
-package com.ankushgrover.practice.recursion;
+package com.ankushgrover.practice;
 
 
 import java.util.ArrayList;
@@ -8,10 +8,8 @@ public class Recursion {
     public static void main(String[] args) {
 
 
-        //System.out.println(getSubsequence("abc").toString());
-
         long prev = System.nanoTime();
-        System.out.println(getMazePathDiagonal(0, 0, 3, 3).toString());
+        System.out.println(noOfWays(0, 6));
         System.out.println("Time Taken: " + (System.nanoTime() - prev));
     }
 
@@ -407,18 +405,18 @@ public class Recursion {
 
         ArrayList<String> result = new ArrayList<>();
 
-        ArrayList<String> hl  = getMazePathDiagonal(ch, cv+1, row, col);
-        for(String path : hl){
+        ArrayList<String> hl = getMazePathDiagonal(ch, cv + 1, row, col);
+        for (String path : hl) {
             result.add(path + "H");
         }
 
-         hl  = getMazePathDiagonal(ch+1, cv, row, col);
-        for(String path : hl){
+        hl = getMazePathDiagonal(ch + 1, cv, row, col);
+        for (String path : hl) {
             result.add(path + "V");
         }
 
-        hl  = getMazePathDiagonal(ch+1, cv+1, row, col);
-        for(String path : hl){
+        hl = getMazePathDiagonal(ch + 1, cv + 1, row, col);
+        for (String path : hl) {
             result.add(path + "D");
         }
 
@@ -426,4 +424,65 @@ public class Recursion {
 
     }
 
+    /**
+     * Fit 1*2 Dominos In 2*N Strip
+     *
+     * @param o
+     * @param n
+     * @return : List of strings of pattern
+     */
+    private static ArrayList<String> noOfWays(int o, int n) {
+        if (o == n) {
+            ArrayList<String> list = new ArrayList<>();
+            list.add("");
+            return list;
+        }
+
+        if (o > n) {
+            return new ArrayList<>();
+        }
+
+        ArrayList<String> result = new ArrayList<>();
+        ArrayList<String> vl = noOfWays(o + 1, n);
+        for (String c : vl) {
+            result.add("v" + c);
+        }
+
+        ArrayList<String> hl = noOfWays(o + 2, n);
+        for (String c : hl) {
+            result.add("h" + c);
+        }
+
+        return result;
+
+    }
+
+    /**
+     * Fit 1*2 Dominos In 2*N Strip
+     *
+     * @param n
+     * @return : no of pattern
+     */
+    private static int noOfWays(int n) {
+        if (n == 1)
+            return 1;
+        if (n == 2)
+            return 2;
+
+        return noOfWays(n - 1) + noOfWays(n - 2);
+
+    }
+
+    //************************************ Part 3 ****************************************************************
+
+    private static void printSubSequences(String str, String result) {
+        if (str.length() == 0) {
+            System.out.println(result);
+            return;
+        }
+        char ch = str.charAt(0);
+        String ros = str.substring(1);
+        printSubSequences(ros, result);
+        printSubSequences(ros, result + ch);
+    }
 }
