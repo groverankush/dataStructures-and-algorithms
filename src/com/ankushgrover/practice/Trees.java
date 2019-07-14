@@ -3,14 +3,57 @@ package com.ankushgrover.practice;
 import com.ankushgrover.dataStructures.nodes.NodeT;
 
 import java.util.LinkedList;
+import java.util.Stack;
 
 public class Trees {
 
     public static void main(String[] args) {
         NodeT root = makeTree();
         print(root);
-        levelOrderTraversal(root);
+        zigZagTraversal(root);
+
     }
+
+    private static void zigZagTraversal(NodeT root){
+
+        Stack<NodeT> left = new Stack<>();
+        Stack<NodeT> right = new Stack<>();
+
+        left.add(root);
+
+        boolean isLeft = true;
+
+        StringBuilder builder = new StringBuilder();
+        while(!left.isEmpty() || !right.isEmpty()){
+
+
+            Stack<NodeT> stack = isLeft ? left : right;
+
+            NodeT node = stack.pop();
+            if(isLeft){
+                if(node.left!=null)
+                    right.push(node.left);
+                if(node.right!=null)
+                    right.push(node.right);
+            }
+
+            else{
+                if(node.right!=null)
+                    left.push(node.right);
+                if(node.left!=null)
+                    left.push(node.left);
+            }
+
+            builder.append(node.value);
+            builder.append(" ");
+
+            isLeft = stack.isEmpty() != isLeft;
+
+        }
+
+        System.out.println(builder.toString());
+    }
+
 
 
     private static void levelOrderTraversal(NodeT root) {
