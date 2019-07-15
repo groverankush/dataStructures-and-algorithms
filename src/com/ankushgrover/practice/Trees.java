@@ -8,18 +8,27 @@ import java.util.Stack;
 public class Trees {
 
     public static void main(String[] args) {
-        NodeT root = makeTree();
+        NodeT root = makeMirrorTree();
         print(root);
-        System.out.println("InOrder:");
-        inOrder(root);
-        System.out.println();
-        System.out.println("PreOrder:");
-        preOrder(root);
-        System.out.println();
-        System.out.println("PostOrder:");
-        postOrder(root);
-        System.out.println();
 
+        System.out.println(isMirror(root.left, root.right));
+
+    }
+
+    /**
+     * https://www.geeksforgeeks.org/symmetric-tree-tree-which-is-mirror-image-of-itself/
+     * @param left
+     * @param right
+     * @return
+     */
+    private static boolean isMirror(NodeT left, NodeT right){
+        if(left == null && right == null)
+            return true;
+
+        if(left!=null && right!=null && left.value == right.value)
+            return isMirror(left.left, right.right) && isMirror(left.right , right.left);
+
+        return false;
     }
 
     private static void inOrder(NodeT node) {
@@ -122,6 +131,17 @@ public class Trees {
         root.left.left.right = new NodeT(18);
         root.left.right.left = new NodeT(20);
         root.left.right.right = new NodeT(62);
+        return root;
+    }
+
+    private static NodeT makeMirrorTree() {
+        NodeT root = new NodeT(1);
+        root.left = new NodeT(2);
+        root.right = new NodeT(2);
+        root.left.left = new NodeT(3);
+        root.left.right = new NodeT(4);
+        root.right.left = new NodeT(4);
+        root.right.right = new NodeT(3);
         return root;
     }
 
