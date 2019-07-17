@@ -9,7 +9,7 @@ public class Recursion {
 
 
         long prev = System.nanoTime();
-        System.out.println(noOfWays(0, 6));
+        printPermutations("abc", "");
         System.out.println("Time Taken: " + (System.nanoTime() - prev));
     }
 
@@ -484,5 +484,28 @@ public class Recursion {
         String ros = str.substring(1);
         printSubSequences(ros, result);
         printSubSequences(ros, result + ch);
+    }
+
+    /**
+     * Print permutations of passed string.
+     * "abc" -> abc, acb, bac, bca, cab, cba
+     *
+     * @param str:    required string
+     * @param result: Empty String
+     */
+    private static void printPermutations(String str, String result) {
+        if (str.length() == 0) {
+            System.out.println(result);
+            return;
+        }
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            String roq = str.substring(0, i) + str.substring(i + 1);
+
+            printPermutations(roq, result + ch);
+        }
+
+
     }
 }
