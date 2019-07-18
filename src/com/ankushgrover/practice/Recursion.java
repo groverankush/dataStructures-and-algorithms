@@ -9,7 +9,7 @@ public class Recursion {
 
 
         long prev = System.nanoTime();
-        printPermutations("abc", "");
+        printBoardPath(0, "");
         System.out.println("Time Taken: " + (System.nanoTime() - prev));
     }
 
@@ -505,7 +505,21 @@ public class Recursion {
 
             printPermutations(roq, result + ch);
         }
+    }
 
+    private static void printBoardPath(int current, String result) {
+
+        if (current == 10) {
+            System.out.println(result);
+            return;
+        }
+
+        if (current > 10)
+            return;
+
+        for (int i = 1; i <= 6; i++) {
+            printBoardPath(current + i, result + i);
+        }
 
     }
 }
