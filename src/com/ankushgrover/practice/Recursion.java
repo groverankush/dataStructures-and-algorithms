@@ -9,7 +9,9 @@ public class Recursion {
 
 
         long prev = System.nanoTime();
-        printBoardPath(0, "");
+        int end = 10;
+        printBoardPath(0, end,"");
+        System.out.println(countBoardPath(0, end));
         System.out.println("Time Taken: " + (System.nanoTime() - prev));
     }
 
@@ -507,9 +509,9 @@ public class Recursion {
         }
     }
 
-    private static void printBoardPath(int current, String result) {
+    private static void printBoardPath(int current, int end, String result) {
 
-        if (current == 10) {
+        if (current == end) {
             System.out.println(result);
             return;
         }
@@ -518,8 +520,21 @@ public class Recursion {
             return;
 
         for (int i = 1; i <= 6; i++) {
-            printBoardPath(current + i, result + i);
+            printBoardPath(current + i, end, result + i);
         }
+    }
 
+    private static int countBoardPath(int current, int end) {
+        if (current == end) {
+            return 1;
+        }
+        if (current > 10)
+            return 0;
+
+        int paths = 0;
+        for (int i = 1; i <= 6; i++) {
+            paths += countBoardPath(current + i, end);
+        }
+        return paths;
     }
 }
