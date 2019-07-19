@@ -9,9 +9,9 @@ public class Recursion {
 
 
         long prev = System.nanoTime();
-        int end = 10;
-        printBoardPath(0, end,"");
-        System.out.println(countBoardPath(0, end));
+        int size = 3;
+        printMazePath(size, size, 0, 0, "");
+        System.out.println(countMazePath(size, size, 0, 0));
         System.out.println("Time Taken: " + (System.nanoTime() - prev));
     }
 
@@ -535,6 +535,33 @@ public class Recursion {
         for (int i = 1; i <= 6; i++) {
             paths += countBoardPath(current + i, end);
         }
+        return paths;
+    }
+
+    private static void printMazePath(int X, int Y, int h, int v, String result) {
+        if (v == X - 1 && h == Y - 1) {
+            System.out.println(result);
+            return;
+        }
+
+        if (v == X || h == Y)
+            return;
+
+        printMazePath(X, Y, h + 1, v, result + "H");
+        printMazePath(X, Y, h, v + 1, result + "V");
+    }
+
+    private static int countMazePath(int X, int Y, int h, int v) {
+        if (v == X - 1 && h == Y - 1)
+            return 1;
+
+        if (v == X || h == Y)
+            return 0;
+
+        int paths = 0;
+        paths += countMazePath(X, Y, h + 1, v);
+        paths += countMazePath(X, Y, h, v + 1);
+
         return paths;
     }
 }
