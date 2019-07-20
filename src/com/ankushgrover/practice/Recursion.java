@@ -10,8 +10,8 @@ public class Recursion {
 
         long prev = System.nanoTime();
         int size = 3;
-        printMazePath(size, size, 0, 0, "");
-        System.out.println(countMazePath(size, size, 0, 0));
+        printMazePathDiagonal(size, size, 0, 0, "");
+        System.out.println(countMazePathDiagonal(size, size, 0, 0));
         System.out.println("Time Taken: " + (System.nanoTime() - prev));
     }
 
@@ -538,30 +538,62 @@ public class Recursion {
         return paths;
     }
 
-    private static void printMazePath(int X, int Y, int h, int v, String result) {
-        if (v == X - 1 && h == Y - 1) {
+    private static void printMazePath(int rows, int cols, int cr, int cc, String result) {
+        if (cc == cols - 1 && cr == rows - 1) {
             System.out.println(result);
             return;
         }
 
-        if (v == X || h == Y)
+        if (cc == cols || cr == rows)
             return;
 
-        printMazePath(X, Y, h + 1, v, result + "H");
-        printMazePath(X, Y, h, v + 1, result + "V");
+        printMazePath(rows, cols, cr + 1, cc, result + "V");
+        printMazePath(rows, cols, cr, cc + 1, result + "H");
     }
 
-    private static int countMazePath(int X, int Y, int h, int v) {
-        if (v == X - 1 && h == Y - 1)
+    private static int countMazePath(int rows, int cols, int cr, int cc) {
+        if (cr == rows - 1 && cc == cols - 1)
             return 1;
 
-        if (v == X || h == Y)
+        if (cr == rows || cc == cols)
             return 0;
 
         int paths = 0;
-        paths += countMazePath(X, Y, h + 1, v);
-        paths += countMazePath(X, Y, h, v + 1);
+        paths += countMazePath(rows, cols, cr, cc + 1);
+        paths += countMazePath(rows, cols, cr + 1, cc);
 
         return paths;
     }
+
+    private static void printMazePathDiagonal(int rows, int cols, int cr, int cc, String path) {
+        if (cc == cols - 1 && cr == rows - 1) {
+            System.out.println(path);
+            return;
+        }
+
+        if (cc == cols || cr == rows)
+            return;
+
+        printMazePathDiagonal(rows, cols, cr, cc + 1, path + "H"); // Horizontal
+        printMazePathDiagonal(rows, cols, cr + 1, cc, path + "V"); // Vertical
+        printMazePathDiagonal(rows, cols, cr + 1, cc + 1, path + "D"); // Diagonal
+    }
+
+    private static int countMazePathDiagonal(int rows, int cols, int cr, int cc) {
+        if (cc == cols - 1 && cr == rows - 1) {
+            return 1;
+        }
+
+        if (cc == cols || cr == rows)
+            return 0;
+
+        int paths = 0;
+
+        paths += countMazePathDiagonal(rows, cols, cr, cc + 1); // Horizontal
+        paths += countMazePathDiagonal(rows, cols, cr + 1, cc); // Vertical
+        paths += countMazePathDiagonal(rows, cols, cr + 1, cc + 1); // Diagonal
+
+        return paths;
+    }
+
 }
