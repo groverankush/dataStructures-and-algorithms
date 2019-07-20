@@ -8,12 +8,7 @@ import java.util.regex.Pattern;
 public class P09atoi {
 
     public static void main(String[] args) {
-
-        //[+-]?[0-9]+[.]?.*
-        //System.out.println(Pattern.matches("[+-]?[0-9]+\\..*", "+"));
-
-        System.out.println(Integer.MAX_VALUE);
-        System.out.println("2147483646");
+        
         System.out.println(myAtoi("2147483646"));
     }
 
