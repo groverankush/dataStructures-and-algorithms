@@ -1,8 +1,7 @@
 package com.ankushgrover.problems;
 
 /**
- * https://leetcode.com/problems/cos
- * ntainer-with-most-water/
+ * https://leetcode.com/problems/container-with-most-water/
  */
 public class P12ContainerWithMostWater {
 
