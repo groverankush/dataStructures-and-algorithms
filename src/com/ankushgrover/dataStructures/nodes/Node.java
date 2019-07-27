@@ -1,7 +1,7 @@
 package com.ankushgrover.dataStructures.nodes;
 
 /**
- * Sinple node representation for singly linked list.
+ * Simple node representation for singly linked list.
  *
  * @param <T>
  */
