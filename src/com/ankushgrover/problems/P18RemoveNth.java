@@ -1,28 +1,21 @@
 package com.ankushgrover.problems;
 
+import com.ankushgrover.dataStructures.nodes.ListNode;
+
 public class P18RemoveNth {
 
     public static void main(String[] args) {
 
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(5);
-        head.next.next.next.next.next = new ListNode(6);
+        ListNode head = ListNode.create(1, 2, 3, 4, 5, 6, 7);
 
-        print(head);
+        ListNode.print(head);
+
         System.out.println();
-        print(remove(head, 1));
+
+        ListNode.print(remove(head, 1));
 
     }
 
-    private static void print(ListNode node) {
-        while (node != null) {
-            System.out.print(node.val + "->");
-            node = node.next;
-        }
-    }
 
     private static ListNode remove(ListNode head, int n) {
         ListNode behind = head;
@@ -46,14 +39,5 @@ public class P18RemoveNth {
             prev.next = behind.next;
 
         return head;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
     }
 }
