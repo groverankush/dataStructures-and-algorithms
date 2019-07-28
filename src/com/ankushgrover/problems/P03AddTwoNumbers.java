@@ -1,5 +1,7 @@
 package com.ankushgrover.problems;
 
+import com.ankushgrover.dataStructures.nodes.ListNode;
+
 /**
  * https://leetcode.com/problems/add-two-numbers/
  */
@@ -40,21 +42,5 @@ public class P03AddTwoNumbers {
         }
 
         return result;
-    }
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-
-        ListNode(int... nums) {
-            ListNode node;
-            for (int num : nums) {
-
-            }
-        }
     }
 }
