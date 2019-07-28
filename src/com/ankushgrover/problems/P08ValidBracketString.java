@@ -3,9 +3,13 @@ package com.ankushgrover.problems;
 import java.util.Stack;
 
 /**
- * Imagine you are building a compiler. Before running any code, the compiler must check that the parentheses in the program are balanced. Every opening bracket must have a corresponding closing bracket. We can approximate this using strings.
+ * Imagine you are building a compiler. Before running any code, the compiler must check that the parentheses in the
+ * program are balanced. Every opening bracket must have a corresponding closing bracket. We can approximate this using
+ * strings.
+ *
  * <p>
- * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+ * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is
+ * valid.
  * An input string is valid if:
  * - Open brackets are closed by the same type of brackets.
  * - Open brackets are closed in the correct order.
@@ -20,6 +24,10 @@ import java.util.Stack;
  * <p>
  * Input: "({[)]"
  * Output: False
+ *
+ * *********************************************** AND  *********************************************************
+ *
+ * https://leetcode.com/problems/valid-parentheses/submissions/
  */
 public class P08ValidBracketString {
 
