@@ -1,4 +1,4 @@
-package com.ankushgrover.dataStructures.graph;
+package com.ankushgrover.dataStructures.graph.models;
 
 public class Vertex<T> {
 

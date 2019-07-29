@@ -1,9 +1,9 @@
-package com.ankushgrover.dataStructures.graph;
+package com.ankushgrover.dataStructures.graph.models;
 
 public class Edge<T> {
 
-    Vertex<T> to;
-    Vertex<T> from;
+    public Vertex<T> to;
+    public Vertex<T> from;
     private int weight;
 
     public Edge(Vertex<T> to, Vertex<T> from, int weight) {

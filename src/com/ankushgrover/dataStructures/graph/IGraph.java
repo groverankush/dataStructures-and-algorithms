@@ -1,5 +1,7 @@
 package com.ankushgrover.dataStructures.graph;
 
+import com.ankushgrover.dataStructures.graph.models.Edge;
+
 public interface IGraph<T> {
 
     void removeVertex(T vertex);

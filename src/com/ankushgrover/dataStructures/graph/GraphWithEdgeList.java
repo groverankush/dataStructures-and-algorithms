@@ -1,17 +1,19 @@
 package com.ankushgrover.dataStructures.graph;
 
+import com.ankushgrover.dataStructures.graph.models.Edge;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class GraphWithList<T> implements IGraph<T> {
+public class GraphWithEdgeList<T> implements IGraph<T> {
 
     HashMap<T, ArrayList<T>> map;
 
-    public GraphWithList() {
+    public GraphWithEdgeList() {
         this.map = new HashMap<>();
     }
 
-    public GraphWithList(ArrayList<Edge<T>> edges) {
+    public GraphWithEdgeList(ArrayList<Edge<T>> edges) {
         map = new HashMap<>();
         for (Edge<T> edge : edges)
             addEdge(edge);
