@@ -73,7 +73,7 @@ public class P26EditDistance {
 
         return 1 + min(distance(str1, str2, m, n - 1), //insert
                 distance(str1, str2, m - 1, n - 1), //replace
-                distance(str1, str2, m, n - 1)
+                distance(str1, str2, m - 1, n) //delete
         );
 
     }
