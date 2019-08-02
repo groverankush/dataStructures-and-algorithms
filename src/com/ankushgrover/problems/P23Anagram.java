@@ -1,7 +1,9 @@
 package com.ankushgrover.problems;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Because it was asked by Anurag's friend google's interview.
@@ -9,13 +11,21 @@ import java.util.HashMap;
 public class P23Anagram {
 
     public static void main(String[] args) {
-        int size = 10000;
+        int size = 1000000;
+        Integer [] x = new Integer[size];
         int[] a = new int[size];
         int[] b = new int[size];
         for (int i = 0; i < size; i++) {
-            a[i] = i;
-            b[i] = size - 1 - i;
+            x[i] = i;
         }
+        List<Integer> random = Arrays.asList(x);
+        Collections.shuffle(random);
+
+        getArr(random, a);
+        Collections.shuffle(random);
+        getArr(random, b);
+
+
 
         long time = System.nanoTime();
         System.out.println("Anagram hash: " + isAnagramHash(a, b));
@@ -131,5 +141,11 @@ public class P23Anagram {
         return true;
     }
 
+
+    private static void getArr(List<Integer> list, int[] arr){
+        for(int i = 0 ; i < list.size(); i++){
+            arr[i] = list.get(i);
+        }
+    }
 
 }
