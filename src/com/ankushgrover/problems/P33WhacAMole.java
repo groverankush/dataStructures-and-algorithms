@@ -1,5 +1,8 @@
 package com.ankushgrover.problems;
 
+/**
+ * Asked in google's phone interview
+ */
 public class P33WhacAMole {
 
     public static void main(String[] args) {
@@ -54,12 +57,12 @@ public class P33WhacAMole {
 
         while (end < otherStart) {
 
-            if(otherSum > sum){
+            if (otherSum > sum) {
                 end++;
                 sum = sum + arr[end];
                 sum = sum - arr[start];
                 start++;
-            }else{
+            } else {
                 otherStart--;
                 otherSum += arr[otherStart];
                 otherSum -= arr[otherEnd];
