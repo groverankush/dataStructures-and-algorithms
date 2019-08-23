@@ -2,6 +2,9 @@ package com.ankushgrover.problems;
 
 import java.util.HashMap;
 
+/**
+ * https://leetcode.com/problems/logger-rate-limiter/
+ */
 public class P49LoggerRateLimiter {
 
     public static void main(String[] args) {
