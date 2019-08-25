@@ -4,8 +4,10 @@ import java.util.HashMap;
 
 /**
  * Created by Ankush Grover(ankush.dev2@gmail.com) on 25/08/19
+ * <p>
+ * https://leetcode.com/problems/roman-to-integer/
  */
-public class P52RomanToInt {
+public class P53RomanToInt {
 
     public static void main(String[] args) {
         System.out.println(romanToInt("XV"));
@@ -13,17 +15,17 @@ public class P52RomanToInt {
 
     private static int romanToInt(String s) {
 
-        if(s == null || s.isEmpty())
+        if (s == null || s.isEmpty())
             return 0;
 
         HashMap<Character, Integer> map = makeMap();
 
-        int num = map.get(s.charAt(s.length()-1));
+        int num = map.get(s.charAt(s.length() - 1));
 
-        for(int i = s.length()-2; i >= 0; i--){
-            if(isDecreasing(s.charAt(i), s.charAt(i+1), map)){
+        for (int i = s.length() - 2; i >= 0; i--) {
+            if (isDecreasing(s.charAt(i), s.charAt(i + 1), map)) {
                 num = num - map.get(s.charAt(i));
-            }else
+            } else
                 num = num + map.get(s.charAt(i));
         }
 
@@ -31,7 +33,7 @@ public class P52RomanToInt {
 
     }
 
-    private static HashMap<Character, Integer> makeMap(){
+    private static HashMap<Character, Integer> makeMap() {
 
         HashMap<Character, Integer> map = new HashMap<>();
         map.put('I', 1);
@@ -46,7 +48,7 @@ public class P52RomanToInt {
 
     }
 
-    private static boolean isDecreasing(char current, char next, HashMap<Character, Integer> map){
+    private static boolean isDecreasing(char current, char next, HashMap<Character, Integer> map) {
 
         return map.get(current) < map.get(next);
 
