@@ -24,12 +24,17 @@ package com.ankushgrover.problems;
  * No "shorting"—you need to buy before you can sell. Also, you can't buy and sell in the same time step—at least 1 minute has to pass.
  *
  * https://www.interviewcake.com/question/python/stock-price
+ *
+ * https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
  */
 public class P01ApplesAndStocks {
 
     public static void main(String[] args) {
         int[] arr = {10, 7, 5, 8, 11, 9};
+
         System.out.println(applesAndStocks(arr));
+
+        System.out.println(maxProfit(arr));
     }
 
     private static int applesAndStocks(int[] arr) {
@@ -49,6 +54,32 @@ public class P01ApplesAndStocks {
         }
 
         return profit;
+    }
+
+    /**
+     * https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+     *
+     * @param prices
+     * @return
+     */
+    private static int maxProfit(int[] prices) {
+
+        int max = 0;
+        int ref = 0;
+        int i = 1;
+        while(i < prices.length){
+
+            int diff =  prices[i] - prices[ref];
+
+            if(diff < 0)
+                ref = i;
+
+            max = Math.max(diff, max);
+            i++;
+        }
+
+        return max;
+
     }
 
 }
