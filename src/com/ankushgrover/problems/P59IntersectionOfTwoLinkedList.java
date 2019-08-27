@@ -2,6 +2,8 @@ package com.ankushgrover.problems;
 
 import com.ankushgrover.dataStructures.nodes.ListNode;
 
+import java.util.HashMap;
+
 /**
  * Created by Ankush Grover(ankush.dev2@gmail.com) on 26/08/19
  *
@@ -10,6 +12,13 @@ import com.ankushgrover.dataStructures.nodes.ListNode;
 public class P59IntersectionOfTwoLinkedList {
 
     public static void main(String[] args) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        map.put(1,2);
+
+        for(int i : map.keySet()){
+
+        }
     }
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
