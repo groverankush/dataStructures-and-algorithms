@@ -9,6 +9,10 @@ public class Scratch {
         Stack<Integer> stack = new Stack<>();
 
 
+        StringBuilder builder;
+
+
+
         for(int i : stack){
 
         }
