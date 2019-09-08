@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Ankush Grover(ankush.dev2@gmail.com) on 04/09/19
  * <p>
- * https://leetcode.com/problems/merge-intervals/
+ *  https://leetcode.com/problems/merge-intervals/
  */
 public class P77MergeIntervals {
 
