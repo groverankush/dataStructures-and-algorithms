@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 /**
  * Created by Ankush Grover(ankush.dev2@gmail.com) on 09/09/19
+ * <p>
+ * https://leetcode.com/problems/isomorphic-strings/
  */
 public class P87IsomorphicStrings {
 
