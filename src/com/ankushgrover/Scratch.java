@@ -1,22 +1,26 @@
 package com.ankushgrover;
 
-import java.util.HashMap;
-import java.util.Stack;
-
 public class Scratch {
 
     public static void main(String [] args){
-        Stack<Integer> stack = new Stack<>();
 
+        long start = 0;
 
-        StringBuilder builder;
+/*        start = System.currentTimeMillis();
+        for(int i = 0 ; i < 1000000; i++){
+            int arr[]  = new int [1000];
+        }
+        System.out.println("Time: " + (System.currentTimeMillis() - start));*/
 
-
-
-        for(int i : stack){
+        start = System.currentTimeMillis();
+        int arr[] = new int[1000];
+        for (int i = 0; i < 1000000; i++) {
 
         }
+        System.out.println("Time: " + (System.currentTimeMillis() - start));
     }
+
+
 
 
 }
