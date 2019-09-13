@@ -13,10 +13,10 @@ public class P103EvenOdds {
 
         Scanner in = new Scanner(System.in);
 
-        int n = in.nextInt(), k = in.nextInt();
+        long n = in.nextLong(), k = in.nextLong();
 
-        int lastOdd = n % 2 == 0 ? ((n / 2) - 1) : n / 2;
-        int lastEven = n - 1;
+        long lastOdd = n % 2 == 0 ? ((n / 2) - 1) : n / 2;
+        long lastEven = n - 1;
 
         if (k - 1 <= lastOdd) {
             System.out.print(1 + ((k - 1) * 2));
