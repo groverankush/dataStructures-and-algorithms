@@ -8,7 +8,7 @@ import java.util.Scanner;
  * <p>
  * http://codeforces.com/problemset/problem/337/A
  */
-public class P106CCPuzzles {
+public class P106CFPuzzles {
 
 
     public static void main(String[] args) {
