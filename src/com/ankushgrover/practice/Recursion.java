@@ -2,6 +2,7 @@ package com.ankushgrover.practice;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Recursion {
 
@@ -10,9 +11,19 @@ public class Recursion {
 
         long prev = System.nanoTime();
         int size = 3;
-        printMazePathDiagonal(size, size, 0, 0, "");
-        System.out.println(countMazePathDiagonal(size, size, 0, 0));
-        System.out.println("Time Taken: " + (System.nanoTime() - prev));
+        //printMazePathDiagonal(size, size, 0, 0, "");
+        //System.out.println(countMazePathDiagonal(size, size, 0, 0));
+        //System.out.println("Time Taken: " + (System.nanoTime() - prev));
+
+        List<String> perms = getPermutations("01234");
+        List<Integer> l = new ArrayList<>();
+        l.add(0);
+        l.add(1);
+        l.add(2);
+        l.add(3);
+        l.add(4);
+        List<List<Integer>> list = getPermutations(l);
+        System.out.print(perms);
     }
 
 
@@ -321,6 +332,41 @@ public class Recursion {
 
 
         }
+        return result;
+
+    }
+
+    /**
+     * input is [1,2,3,4] -> [[1,2,3,4], [1,2,4,3]...]
+     *
+     * @param s
+     * @return
+     */
+    private static List<List<Integer>> getPermutations(List<Integer> s) {
+
+        if (s.size() == 1) {
+            ArrayList<List<Integer>> list = new ArrayList<>();
+            List<Integer> l = new ArrayList<>(s);
+            list.add(l);
+            return list;
+        }
+
+        int first = s.get(0);
+        s.remove(0);
+
+        List<List<Integer>> perms = getPermutations(s);
+        List<List<Integer>> result = new ArrayList<>();
+
+        for (List<Integer> perm : perms) {
+            List<Integer> temp = new ArrayList<>(perm);
+
+            for (int i = 0; i <= perm.size(); i++) {
+                temp.add(i, first);
+                result.add(new ArrayList<Integer>(temp));
+                temp.remove(i);
+            }
+        }
+
         return result;
 
     }
