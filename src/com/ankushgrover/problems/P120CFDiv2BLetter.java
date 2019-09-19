@@ -1,84 +1,50 @@
 package com.ankushgrover.problems;
 
-import java.io.*;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Scanner;
 
-public class A01Reader {
+/**
+ * Created by Ankush Grover(ankush.dev2@gmail.com) on 19/09/19
+ * <p>
+ * http://codeforces.com/problemset/problem/43/B
+ */
+public class P120CFDiv2BLetter {
 
-    public static class MyScanner {
-        BufferedReader reader;
+    public static void main(String[] args) throws IOException {
+        P120CFDiv2BLetter obj = new P120CFDiv2BLetter();
+        obj.run();
+    }
 
-        public MyScanner() {
-            this.reader = new BufferedReader(new InputStreamReader(System.in));
+    private void run() throws IOException {
+        Scanner in = new Scanner(System.in);
+
+        String s1 = in.nextLine();
+        String s2 = in.nextLine();
+
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        for (char ch : s1.toCharArray()) {
+            if (ch != ' ')
+                map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
 
-        public void close() throws IOException {
-            this.reader.close();
-        }
-
-        int nextInt() {
-            return Integer.parseInt(this.next());
-        }
-
-        long nextLong() {
-            return Long.parseLong(this.next());
-        }
-
-        double nextDouble() {
-            return Double.parseDouble(this.next());
-        }
-
-        String next() {
-            String str = "";
-            try {
-                str = this.reader.readLine().trim();
-            } catch (IOException e) {
-                e.printStackTrace();
+        int count;
+        for (char ch : s2.toCharArray()) {
+            if (ch != ' ') {
+                count = map.getOrDefault(ch, 0);
+                if (count > 0) {
+                    map.put(ch, count - 1);
+                } else {
+                    System.out.print("NO");
+                    return;
+                }
             }
-            return str;
         }
 
-        String[] nextStringArray() {
-            String[] str = null;
-            try {
-                str = this.reader.readLine().trim().split(" ");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return str;
-        }
-
-        int[] nextIntArray() {
-            String[] data = nextStringArray();
-            int[] a = new int[data.length];
-
-            for (int i = 0; i < a.length; i++) {
-                a[i] = Integer.parseInt(data[i]);
-            }
-
-            return a;
-        }
-
-        Integer[] nextIntegerArray() {
-            String[] data = nextStringArray();
-            Integer[] a = new Integer[data.length];
-
-            for (int i = 0; i < a.length; i++) {
-                a[i] = Integer.parseInt(data[i]);
-            }
-
-            return a;
-        }
-
-        long[] nextLongArray() {
-            String[] data = nextStringArray();
-            long[] a = new long[data.length];
-
-            for (int i = 0; i < a.length; i++) {
-                a[i] = Long.parseLong(data[i]);
-            }
-
-            return a;
-        }
+        System.out.print("YES");
     }
 
     static class Reader {
@@ -186,7 +152,6 @@ public class A01Reader {
                 return;
             din.close();
         }
-
-
     }
+
 }
