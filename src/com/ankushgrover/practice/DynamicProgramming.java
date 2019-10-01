@@ -14,8 +14,12 @@ public class DynamicProgramming {
         int[] weights = {1, 3, 4, 5};
         int[] values = {1, 4, 5, 7};
         int weight = 7;
-        System.out.println(obj.knapSack01(weights, values, weight));
+        //System.out.println(obj.knapSack01(weights, values, weight));
 
+
+        String a = "abcfde";
+        String b = "axbfe";
+        System.out.println(obj.longestCommonSubsequence(a, b));
     }
 
     private int knapSack01(int[] weights, int[] values, int weight) {
@@ -41,6 +45,22 @@ public class DynamicProgramming {
 
         return dp[i - 1][j - 1];
 
+    }
+
+    private int longestCommonSubsequence(String a, String b) {
+
+        int[][] dp = new int[a.length()][b.length()];
+
+        int i, j = 0;
+        for (i = 0; i < a.length(); i++) {
+            for (j = 0; j < b.length(); j++) {
+
+                dp[i][j] = (a.charAt(i) == b.charAt(j) ? (1 + helperGetPrev(i - 1, j - 1, dp)) : (Math.max(helperGetPrev(i - 1, j, dp), helperGetPrev(i, j - 1, dp))));
+
+            }
+        }
+
+        return dp[i - 1][j - 1];
     }
 
     private void helperPrint(int[][] dp) {
