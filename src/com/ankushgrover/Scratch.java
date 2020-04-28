@@ -1,26 +1,41 @@
 package com.ankushgrover;
 
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.FutureTask;
+
 public class Scratch {
 
-    public static void main(String [] args){
+    private String value = "";
 
-        long start = 0;
+    public static void main(String[] args) {
 
-/*        start = System.currentTimeMillis();
-        for(int i = 0 ; i < 1000000; i++){
-            int arr[]  = new int [1000];
-        }
-        System.out.println("Time: " + (System.currentTimeMillis() - start));*/
+        Scratch obj = new Scratch();
 
-        start = System.currentTimeMillis();
-        int arr[] = new int[1000];
-        for (int i = 0; i < 1000000; i++) {
+        System.out.println("Hello" + obj.getFutureValue());
 
-        }
-        System.out.println("Time: " + (System.currentTimeMillis() - start));
     }
 
+    private String getFutureValue() {
 
+        FutureTask<String> task = new FutureTask<String>(() -> {
+            value = "Working as expected";
+            return value;
+        });
+
+        Executors.newSingleThreadExecutor().submit(task);
+
+        try {
+            return task.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            return "InterruptedException";
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+            return "ExecutionException";
+        }
+
+    }
 
 
 }
