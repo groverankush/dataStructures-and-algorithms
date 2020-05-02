@@ -7,10 +7,10 @@ import java.util.HashMap;
  * <p>
  * https://leetcode.com/problems/jewels-and-stones
  */
-public class P138LCJewelsAndStones {
+public class P139LCJewelsAndStones {
 
     public static void main(String[] args) {
-        P138LCJewelsAndStones obj = new P138LCJewelsAndStones();
+        P139LCJewelsAndStones obj = new P139LCJewelsAndStones();
         System.out.println(obj.numJewelsInStones("z", "ZZ"));
     }
 
