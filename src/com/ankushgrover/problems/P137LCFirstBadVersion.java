@@ -2,6 +2,8 @@ package com.ankushgrover.problems;
 
 /**
  * Created by Ankush Grover(ankush.dev2@gmail.com) on 01/05/20
+ * <p>
+ * https://leetcode.com/problems/first-bad-version
  */
 public class P137LCFirstBadVersion {
 
@@ -32,16 +34,15 @@ public class P137LCFirstBadVersion {
             if (low == high)
                 return isBadVersion(low) ? low : pos;
 
-             int mid = low + (high - low+1) / 2;
+            int mid = low + (high - low + 1) / 2;
             //System.out.println(low + " " + high+" "+mid);
 
 
             if (isBadVersion(mid)) {
-                high = mid-1;
+                high = mid - 1;
                 pos = mid;
-            }
-            else {
-                low = mid+1;
+            } else {
+                low = mid + 1;
                 //return search(mid + 1, high, pos);
             }
         }
