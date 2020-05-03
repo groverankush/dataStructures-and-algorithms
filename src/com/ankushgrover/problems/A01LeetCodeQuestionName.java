@@ -4,7 +4,7 @@ public class A01LeetCodeQuestionName {
 
     public static void main(String [] args){
 
-        String name = "First Bad Version";
+        String name = "Ransom Note";
 
         //1169, 1170, 1171, 1172
 
