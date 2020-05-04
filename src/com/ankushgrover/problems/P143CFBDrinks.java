@@ -1,88 +1,33 @@
 package com.ankushgrover.problems;
 
-import java.io.*;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
 
-public class A01Reader {
+/**
+ * Created by Ankush Grover(ankush.dev2@gmail.com) on 04/05/20
+ * <p>
+ * https://codeforces.com/problemset/problem/200/B
+ */
+public class P143CFBDrinks {
 
-    // For Strings
-    public static class MyScanner {
-        BufferedReader reader;
 
-        public MyScanner() {
-            this.reader = new BufferedReader(new InputStreamReader(System.in));
-        }
+    public static void main(String[] args) throws IOException {
 
-        public void close() throws IOException {
-            this.reader.close();
-        }
-
-        int nextInt() {
-            return Integer.parseInt(this.next());
-        }
-
-        long nextLong() {
-            return Long.parseLong(this.next());
-        }
-
-        double nextDouble() {
-            return Double.parseDouble(this.next());
-        }
-
-        String next() {
-            String str = "";
-            try {
-                str = this.reader.readLine().trim();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return str;
-        }
-
-        String[] nextStringArray() {
-            String[] str = null;
-            try {
-                str = this.reader.readLine().trim().split(" ");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return str;
-        }
-
-        int[] nextIntArray() {
-            String[] data = nextStringArray();
-            int[] a = new int[data.length];
-
-            for (int i = 0; i < a.length; i++) {
-                a[i] = Integer.parseInt(data[i]);
-            }
-
-            return a;
-        }
-
-        Integer[] nextIntegerArray() {
-            String[] data = nextStringArray();
-            Integer[] a = new Integer[data.length];
-
-            for (int i = 0; i < a.length; i++) {
-                a[i] = Integer.parseInt(data[i]);
-            }
-
-            return a;
-        }
-
-        long[] nextLongArray() {
-            String[] data = nextStringArray();
-            long[] a = new long[data.length];
-
-            for (int i = 0; i < a.length; i++) {
-                a[i] = Long.parseLong(data[i]);
-            }
-
-            return a;
-        }
+        P143CFBDrinks obj = new P143CFBDrinks();
+        obj.run();
     }
 
-    // For Integers
+    private void run() throws IOException {
+        Reader reader = new Reader();
+        int n = reader.nextInt();
+        double total = 0;
+        for (int i = 0; i < n; i++) {
+            total += reader.nextInt() / (n * 1.0);
+        }
+        System.out.println(total);
+    }
+
     static class Reader {
         final private int BUFFER_SIZE = 1 << 16;
         private DataInputStream din;
@@ -191,4 +136,5 @@ public class A01Reader {
 
 
     }
+
 }
