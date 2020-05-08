@@ -12,8 +12,19 @@ public class Scratch {
 
         Scratch obj = new Scratch();
 
-        System.out.println("Hello" + obj.getFutureValue());
+        obj.complement(1);
+    }
 
+    private void complement(int n){
+        // Find number of bits in the
+        // given integer
+        int number_of_bits =
+                (int)(Math.floor(Math.log(n) /
+                        Math.log(2))) + 1;
+
+        // XOR the given integer with poe(2,
+        // number_of_bits-1 and print the result
+        System.out.println(((1 << number_of_bits) - 1) ^ n) ;
     }
 
     private String getFutureValue() {
