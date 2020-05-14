@@ -10,10 +10,14 @@ public class Scratch {
 
     public static void main(String[] args) {
 
+        System.out.println("[],[\"app\"],[\"apple\"],[\"beer\"],[\"add\"],[\"jam\"],[\"rental\"],[\"apps\"],[\"app\"],[\"ad\"],[\"applepie\"],[\"rest\"],[\"jan\"],[\"rent\"],[\"beer\"],[\"jam\"],[\"apps\"],[\"app\"],[\"ad\"],[\"applepie\"],[\"rest\"],[\"jan\"],[\"rent\"],[\"beer\"],[\"jam\"]".replaceAll("\\[", "").replaceAll("\\]", ""));
+
         Scratch obj = new Scratch();
 
         obj.complement(1);
     }
+
+
 
     private void complement(int n){
         // Find number of bits in the
