@@ -10,6 +10,7 @@ public class P157LCCountSquares {
     public static void main(String[] args) {
     }
 
+    // Unoptimized
     public int countSquares(int[][] matrix) {
 
         int count = 0;

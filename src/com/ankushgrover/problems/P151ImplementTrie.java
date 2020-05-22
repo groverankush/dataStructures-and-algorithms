@@ -1,10 +1,5 @@
 package com.ankushgrover.problems;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.TreeMap;
-import java.util.TreeSet;
-
 /**
  * Created by Ankush Grover(ankush.dev2@gmail.com) on 14/05/20
  */
@@ -39,15 +34,6 @@ public class P151ImplementTrie {
 
     static class Trie {
 
-        class TrieNode{
-            TrieNode[] arr = new TrieNode[26];
-            boolean isEnd = false;
-
-            TrieNode(){
-
-            }
-        }
-
         private TrieNode root;
 
         /**
@@ -63,9 +49,9 @@ public class P151ImplementTrie {
         public void insert(String word) {
 
             TrieNode node = root;
-            for(int i = 0; i < word.length(); i++){
+            for (int i = 0; i < word.length(); i++) {
                 int index = word.charAt(i) - 'a';
-                if(node.arr[index] == null)
+                if (node.arr[index] == null)
                     node.arr[index] = new TrieNode();
                 node = node.arr[index];
             }
@@ -77,9 +63,9 @@ public class P151ImplementTrie {
          */
         public boolean search(String word) {
             TrieNode node = root;
-            for(int i = 0; i < word.length(); i++){
+            for (int i = 0; i < word.length(); i++) {
                 int index = word.charAt(i) - 'a';
-                if(node.arr[index] == null)
+                if (node.arr[index] == null)
                     return false;
                 node = node.arr[index];
             }
@@ -92,14 +78,23 @@ public class P151ImplementTrie {
          */
         public boolean startsWith(String prefix) {
             TrieNode node = root;
-            for(int i = 0; i < prefix.length(); i++){
+            for (int i = 0; i < prefix.length(); i++) {
                 int index = prefix.charAt(i) - 'a';
-                if(node.arr[index] == null)
+                if (node.arr[index] == null)
                     return false;
                 node = node.arr[index];
             }
 
             return true;
+        }
+
+        class TrieNode {
+            TrieNode[] arr = new TrieNode[26];
+            boolean isEnd = false;
+
+            TrieNode() {
+
+            }
         }
     }
 
