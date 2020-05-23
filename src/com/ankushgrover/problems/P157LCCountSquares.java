@@ -8,6 +8,11 @@ package com.ankushgrover.problems;
 public class P157LCCountSquares {
 
     public static void main(String[] args) {
+
+        P157LCCountSquares obj = new P157LCCountSquares();
+        int [][] arr = { {1,1,1}, {1,1,1}, {1,1,1} };
+        System.out.println(obj.countSquares(arr));
+
     }
 
     // Unoptimized
