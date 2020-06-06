@@ -1,4 +1,4 @@
-package com.ankushgrover.problems;
+package com.ankushgrover.interview;
 
 import java.util.Arrays;
 import java.util.Comparator;
