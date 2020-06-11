@@ -41,6 +41,7 @@ public class P165LCMKClosestPointsToOrigin {
             int[] t1 = points[i];
             q.add(new Node(i, Math.sqrt((t1[0] * t1[0]) + (t1[1] * t1[1]))));
         }
+        // sqrt( (xa-xb)2 + (ya -yb)2 )
 
         int[][] result = new int[K][2];
 
