@@ -2,6 +2,10 @@ package com.ankushgrover.problems;
 
 /**
  * Created by Ankush Grover(ankush.dev2@gmail.com) on 03/07/20
+ * <p>
+ * https://leetcode.com/problems/minimum-swaps-to-make-strings-equal/
+ * <p>
+ * #medium
  */
 public class P181LCMMinimumSwapsToMakeStringsEqual {
 
