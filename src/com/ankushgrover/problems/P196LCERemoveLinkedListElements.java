@@ -2,6 +2,8 @@ package com.ankushgrover.problems;
 
 import com.ankushgrover.dataStructures.nodes.ListNode;
 
+import java.util.Arrays;
+
 /**
  * Created by Ankush Grover(ankush.dev2@gmail.com) on 20/07/20
  * <p>
@@ -12,6 +14,9 @@ import com.ankushgrover.dataStructures.nodes.ListNode;
 public class P196LCERemoveLinkedListElements {
 
     public static void main(String[] args) {
+        System.out.println(Arrays.toString("Hello #world hwlloe".split("#", 2)));
+
+
     }
 
     public ListNode removeElements(ListNode head, int val) {
