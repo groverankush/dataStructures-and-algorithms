@@ -9,6 +9,10 @@ import java.util.TreeSet;
 
 /**
  * Created by Ankush Grover(ankush.dev2@gmail.com) on 07/08/20
+ * <p>
+ * https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/
+ * <p>
+ * #medium
  */
 public class P206LCMVerticalOrderTraversalOfABinaryTree {
 
