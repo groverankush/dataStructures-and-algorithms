@@ -24,11 +24,11 @@ public class P208LCEPascalsTriangleII {
         if (rowIndex == 1)
             return space;
 
-        for (int i = 0; i < rowIndex; i++) {
+        for (int i = 1; i < rowIndex; i++) {
 
             int prev = space.get(0);
             for (int j = 1; j < space.size(); j++) {
-                int temp = prev;
+                int temp = space.get(j);
                 space.set(j, prev + space.get(j));
                 prev = temp;
             }
