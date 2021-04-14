@@ -1,5 +1,6 @@
 package com.ankushgrover;
 
+import java.net.URI;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
@@ -10,11 +11,14 @@ public class Scratch {
 
     public static void main(String[] args) {
 
-        System.out.println("[],[\"app\"],[\"apple\"],[\"beer\"],[\"add\"],[\"jam\"],[\"rental\"],[\"apps\"],[\"app\"],[\"ad\"],[\"applepie\"],[\"rest\"],[\"jan\"],[\"rent\"],[\"beer\"],[\"jam\"],[\"apps\"],[\"app\"],[\"ad\"],[\"applepie\"],[\"rest\"],[\"jan\"],[\"rent\"],[\"beer\"],[\"jam\"]".replaceAll("\\[", "").replaceAll("\\]", ""));
+        URI uri = URI.create("htpp://www.google.com");
+
+        System.out.println(uri.getRawQuery());
+        /*System.out.println("[],[\"app\"],[\"apple\"],[\"beer\"],[\"add\"],[\"jam\"],[\"rental\"],[\"apps\"],[\"app\"],[\"ad\"],[\"applepie\"],[\"rest\"],[\"jan\"],[\"rent\"],[\"beer\"],[\"jam\"],[\"apps\"],[\"app\"],[\"ad\"],[\"applepie\"],[\"rest\"],[\"jan\"],[\"rent\"],[\"beer\"],[\"jam\"]".replaceAll("\\[", "").replaceAll("\\]", ""));
 
         Scratch obj = new Scratch();
 
-        obj.complement(1);
+        obj.complement(1);*/
     }
 
 
