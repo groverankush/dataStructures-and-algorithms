@@ -2,6 +2,8 @@ package com.ankushgrover.prep;
 
 /**
  * Created by Ankush Grover(ankush.dev2@gmail.com) on 20/04/21
+ *
+ * https://www.hackerrank.com/challenges/pangrams/problem
  */
 public class I8LCEPangrams {
 
