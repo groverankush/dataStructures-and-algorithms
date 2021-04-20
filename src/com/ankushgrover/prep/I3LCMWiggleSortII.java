@@ -1,4 +1,4 @@
-package com.ankushgrover.problems;
+package com.ankushgrover.prep;
 
 import java.util.Arrays;
 
@@ -7,7 +7,7 @@ import java.util.Arrays;
  * <p>
  * https://leetcode.com/problems/wiggle-sort-ii/
  */
-public class P218LCMWiggleSortII {
+public class I3LCMWiggleSortII {
 
     public static void main(String[] args) {
 

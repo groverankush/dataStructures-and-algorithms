@@ -1,9 +1,9 @@
-package com.ankushgrover.problems;
+package com.ankushgrover.prep;
 
 /**
  * Created by Ankush Grover(ankush.dev2@gmail.com) on 14/04/21
  */
-public class P221HRENumberLineJumps {
+public class I1HRENumberLineJumps {
 
     public static void main(String[] args) {
     }

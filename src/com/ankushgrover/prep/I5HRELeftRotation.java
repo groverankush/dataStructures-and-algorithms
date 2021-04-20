@@ -1,4 +1,4 @@
-package com.ankushgrover.problems;
+package com.ankushgrover.prep;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
  * <p>
  * https://www.hackerrank.com/challenges/array-left-rotation/problem
  */
-public class P220HRELeftRotation {
+public class I5HRELeftRotation {
 
     public static void main(String[] args) {
     }

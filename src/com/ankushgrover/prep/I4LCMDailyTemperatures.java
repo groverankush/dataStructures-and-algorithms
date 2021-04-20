@@ -1,4 +1,4 @@
-package com.ankushgrover.problems;
+package com.ankushgrover.prep;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,11 +8,11 @@ import java.util.Arrays;
  * <p>
  * https://leetcode.com/problems/daily-temperatures/
  */
-public class P219LCMDailyTemperatures {
+public class I4LCMDailyTemperatures {
 
     public static void main(String[] args) {
 
-        P219LCMDailyTemperatures obj = new P219LCMDailyTemperatures();
+        I4LCMDailyTemperatures obj = new I4LCMDailyTemperatures();
 
         int arr[] = {73, 74, 75, 71, 69, 72, 76, 73};
         obj.dailyTemperatures(arr);

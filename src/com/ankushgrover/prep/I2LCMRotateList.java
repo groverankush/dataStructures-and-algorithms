@@ -1,4 +1,4 @@
-package com.ankushgrover.problems;
+package com.ankushgrover.prep;
 
 import com.ankushgrover.dataStructures.nodes.ListNode;
 
@@ -7,7 +7,7 @@ import com.ankushgrover.dataStructures.nodes.ListNode;
  * <p>
  * https://leetcode.com/problems/rotate-list/
  */
-public class P217LCMRotateList {
+public class I2LCMRotateList {
 
     public static void main(String[] args) {
 
