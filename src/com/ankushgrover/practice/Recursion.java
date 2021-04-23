@@ -23,7 +23,11 @@ public class Recursion {
         l.add(3);
         l.add(4);
         List<List<Integer>> list = getPermutations(l);
-        System.out.print(perms);
+
+
+        //System.out.println(getSubsequence("abcdefg")) ;
+        System.out.println(getSubsequenceMod(1, 10, 1000));
+        //System.out.print(perms);
     }
 
 
@@ -295,6 +299,28 @@ public class Recursion {
         ArrayList<String> recResult = getSubsequence(ros);
 
         for (String s : recResult) {
+            result.add(s);
+            result.add(cc + s);
+        }
+        return result;
+
+    }
+
+    private static ArrayList<Integer> getSubsequenceMod(int start, int sum, int max) {
+
+        if (start == max) {
+            ArrayList<Integer> list = new ArrayList<>();
+            list.add(max);
+            return list;
+        }
+
+        int cc = start;
+
+        int ros = cc + 1;
+        ArrayList<Integer> result = new ArrayList<>();
+        ArrayList<Integer> recResult = getSubsequenceMod(ros, sum, max);
+
+        for (Integer s : recResult) {
             result.add(s);
             result.add(cc + s);
         }
