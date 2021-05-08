@@ -9,7 +9,7 @@ import java.util.List;
  * <p>
  * https://leetcode.com/problems/3sum/
  */
-public class L10LCM3Sum {
+public class I10LCM3Sum {
 
     public static void main(String[] args) {
     }

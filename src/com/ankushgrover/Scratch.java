@@ -1,6 +1,5 @@
 package com.ankushgrover;
 
-import java.net.URI;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
@@ -11,16 +10,17 @@ public class Scratch {
 
     public static void main(String[] args) {
 
-        URI uri = URI.create("htpp://www.google.com");
 
-        System.out.println(uri.getRawQuery());
-        /*System.out.println("[],[\"app\"],[\"apple\"],[\"beer\"],[\"add\"],[\"jam\"],[\"rental\"],[\"apps\"],[\"app\"],[\"ad\"],[\"applepie\"],[\"rest\"],[\"jan\"],[\"rent\"],[\"beer\"],[\"jam\"],[\"apps\"],[\"app\"],[\"ad\"],[\"applepie\"],[\"rest\"],[\"jan\"],[\"rent\"],[\"beer\"],[\"jam\"]".replaceAll("\\[", "").replaceAll("\\]", ""));
+        System.out.println(Math.pow(2, 31) - 1);
 
-        Scratch obj = new Scratch();
+        System.out.println(-0);
 
-        obj.complement(1);*/
+        System.out.println(Integer.MAX_VALUE);
+
+        System.out.println(2 ^ 3 ^ 2);
+
+
     }
-
 
 
     private void complement(int n){
