@@ -15,18 +15,19 @@ public class Recursion {
         //System.out.println(countMazePathDiagonal(size, size, 0, 0));
         //System.out.println("Time Taken: " + (System.nanoTime() - prev));
 
-        List<String> perms = getPermutations("01234");
+
+        List<String> perms = getPermutations("123");
+
         List<Integer> l = new ArrayList<>();
-        l.add(0);
         l.add(1);
         l.add(2);
         l.add(3);
-        l.add(4);
         List<List<Integer>> list = getPermutations(l);
+        System.out.println(list);
 
 
         //System.out.println(getSubsequence("abcdefg")) ;
-        System.out.println(getSubsequenceMod(1, 10, 1000));
+        //System.out.println(getSubsequenceMod(1, 10, 1000));
         //System.out.print(perms);
     }
 

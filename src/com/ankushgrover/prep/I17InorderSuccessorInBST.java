@@ -14,6 +14,8 @@ import java.util.Stack;
 public class I17InorderSuccessorInBST {
 
     public static void main(String[] args) {
+
+
     }
 
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
