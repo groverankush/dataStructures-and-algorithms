@@ -26,8 +26,11 @@ public class P5CanConstruct {
 
     private void runAllSolutions(String[] bank, String target) {
 
+        System.out.println("Tabulation: " + tabulation(bank, target));
         System.out.println("topDownDP: " + topDownDP(bank, target, new HashMap<>()));
         System.out.println("topDown: " + topDown(bank, target));
+
+        System.out.println("***************");
     }
 
     private boolean topDown(String[] wordBank, String target) {
@@ -70,5 +73,36 @@ public class P5CanConstruct {
         }
         memo.put(target, res);
         return res;
+    }
+
+    private boolean tabulation(String[] bank, String target) {
+
+        boolean[] dp = new boolean[target.length() + 1];
+
+        dp[0] = true;
+        for (int i = 0; i < dp.length; i++) {
+
+            if (dp[i]) {
+                String sub = target.substring(i);
+                for (String s : bank) {
+
+                    if (sub.startsWith(s)) {
+
+
+                        int index = i + s.length();
+
+                        if (index < dp.length) {
+                            dp[index] = true;
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+        return dp[target.length()];
+
     }
 }

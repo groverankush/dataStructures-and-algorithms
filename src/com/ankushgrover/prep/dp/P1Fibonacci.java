@@ -15,8 +15,10 @@ public class P1Fibonacci {
         int fib = 50;
         long[] map = new long[fib + 1];
 
-        System.out.println(fib + " :: " + obj.dpFib(fib, map));
-        System.out.println(fib + " :: " + obj.normalFib(fib));
+        System.out.println(fib + " memoization :: " + obj.dpFib(fib, map));
+        System.out.println(fib + " tabulation :: " + obj.fibTabulation(fib));
+        System.out.println(fib + " recursion :: " + obj.normalFib(fib));
+
 
 
     }
@@ -40,6 +42,24 @@ public class P1Fibonacci {
             return 1;
 
         dp[n] = dpFib(n - 1, dp) + dpFib(n - 2, dp);
+        return dp[n];
+
+    }
+
+    private long fibTabulation(int n) {
+
+        if (n < 2)
+            return n;
+
+        long[] dp = new long[n + 1];
+
+        dp[0] = 0;
+        dp[1] = 1;
+
+        for (int i = 2; i < dp.length; i++) {
+
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
         return dp[n];
 
     }

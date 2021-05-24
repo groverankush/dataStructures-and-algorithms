@@ -27,8 +27,10 @@ public class P6CountConstruct {
 
         for (int i = 0; i < target.length; i++) {
 
+            System.out.println("CountTabulation: " + tabulation(banks[i], target[i]));
             System.out.println("CountDP: " + countDP(banks[i], target[i], new HashMap<>()));
             System.out.println("Count: " + count(banks[i], target[i]));
+            System.out.println("***********************");
 
 
         }
@@ -70,5 +72,36 @@ public class P6CountConstruct {
         memo.put(target, count);
 
         return count;
+    }
+
+    private int tabulation(String[] bank, String target) {
+
+        int[] dp = new int[target.length() + 1];
+
+        dp[0] = 1;
+
+        for (int i = 0; i < dp.length; i++) {
+
+            if (dp[i] > 0) {
+
+                String sub = target.substring(i);
+
+                for (int j = 0; j < bank.length; j++) {
+
+                    if (sub.startsWith(bank[j])) {
+                        int index = i + bank[j].length();
+
+                        if (index < dp.length) {
+                            dp[index] += dp[i];
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+        return dp[target.length()];
     }
 }

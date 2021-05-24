@@ -12,18 +12,17 @@ public class P3CanSum {
         P3CanSum obj = new P3CanSum();
         int[] nums = {7, 14};
         int target = 300;
+
+        System.out.println("Tabulation: " + obj.tabulation(nums, target));
+
         Boolean[] dp = new Boolean[target + 1];
-        long time = System.currentTimeMillis();
+
         Arrays.fill(dp, null);
-        System.out.println(obj.dpWithArr(nums, target, dp));
-        System.out.println(System.currentTimeMillis() - time);
-        time = System.currentTimeMillis();
-        System.out.println(obj.dp(nums, target, new HashMap<>()));
-        System.out.println(System.currentTimeMillis() - time);
-        time = System.currentTimeMillis();
-        System.out.println(obj.recur(nums, target));
-        System.out.println(System.currentTimeMillis() - time);
-        time = System.currentTimeMillis();
+        System.out.println("dp with arr: " + obj.dpWithArr(nums, target, dp));
+        System.out.println("dp: " + obj.dp(nums, target, new HashMap<>()));
+        System.out.println("Recursion: " + obj.recur(nums, target));
+
+
     }
 
     boolean recur(int[] nums, int target) {
@@ -86,5 +85,27 @@ public class P3CanSum {
         }
         return result;
 
+    }
+
+    boolean tabulation(int[] nums, int target) {
+
+        boolean[] dp = new boolean[target + 1];
+
+        dp[0] = true;
+
+        for (int i = 0; i < dp.length; i++) {
+
+            for (int num : nums) {
+                if (dp[i]) {
+                    int index = i + num;
+                    if (index < dp.length) {
+                        dp[index] = true;
+                    }
+                }
+            }
+
+        }
+
+        return dp[target];
     }
 }

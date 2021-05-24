@@ -7,11 +7,12 @@ public class P2GridTraveller {
 
     public static void main(String[] args) {
         P2GridTraveller obj = new P2GridTraveller();
-        int x = 18;
-        int y = 18;
+        int x = 2;
+        int y = 5;
         long[][] dp = new long[x + 1][y + 1];
-        System.out.println(obj.waysDP(x, y, dp));
-        System.out.println(obj.waysNormal(x, y));
+        System.out.println("Memoization: " + obj.waysDP(x, y, dp));
+        System.out.println("Tabulation: " + obj.waysTabulation(x, y));
+        System.out.println("Recursion: " + obj.waysNormal(x, y));
 
     }
 
@@ -45,5 +46,27 @@ public class P2GridTraveller {
         long rightWays = waysDP(x, y - 1, dp);
         dp[x][y] = downWays + rightWays;
         return dp[x][y];
+    }
+
+    long waysTabulation(int x, int y) {
+
+        long[][] dp = new long[x + 1][y + 1];
+
+        if (dp.length > 1 && dp[0].length > 1)
+            dp[1][1] = 1;
+
+        for (int i = 0; i < dp.length; i++) {
+            for (int j = 0; j < dp[0].length; j++) {
+
+                if (j + 1 < dp[0].length)
+                    dp[i][j + 1] += dp[i][j];
+                if (i + 1 < dp.length)
+                    dp[i + 1][j] += dp[i][j];
+
+            }
+        }
+
+        return dp[x][y];
+
     }
 }
