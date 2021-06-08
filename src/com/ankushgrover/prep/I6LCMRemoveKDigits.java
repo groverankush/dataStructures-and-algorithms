@@ -11,6 +11,56 @@ public class I6LCMRemoveKDigits {
 
     public static void main(String[] args) {
 
+        I6LCMRemoveKDigits obj = new I6LCMRemoveKDigits();
+        String num = "10";
+        int k = 2;
+        System.out.println(obj.removeKdigits4June2021(num, k));
+
+    }
+
+    public String removeKdigits4June2021(String num, int k) {
+
+
+        Stack<Integer> stack = new Stack<>();
+
+        int i = 0;
+        while (i < num.length()) {
+
+            int digit = Integer.parseInt("" + num.charAt(i));
+
+            if (stack.isEmpty() || digit >= stack.peek()) {
+                if (stack.isEmpty() && digit == 0) {
+
+                } else {
+                    stack.push(digit);
+                }
+
+                i++;
+            } else {
+                if (k > 0) {
+                    stack.pop();
+                    k--;
+                } else {
+                    stack.push(digit);
+                    i++;
+                }
+            }
+
+        }
+        while (k > 0) {
+            if (!stack.isEmpty())
+                stack.pop();
+            k--;
+        }
+
+        StringBuilder builder = new StringBuilder();
+
+        while (!stack.isEmpty())
+            builder.insert(0, stack.pop());
+
+        return builder.length() == 0 ? "0" : builder.toString();
+
+
     }
 
     public String removeKdigits2(String num, int k) {
