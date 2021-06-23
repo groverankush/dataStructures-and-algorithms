@@ -9,7 +9,7 @@ import java.util.HashMap;
  * <p>
  * https://practice.geeksforgeeks.org/problems/count-subarrays-with-equal-number-of-1s-and-0s-1587115620/1
  */
-public class P01CountContiguous01Subarrays {
+public class P01GFGMCountContiguous01Subarrays {
 
     public static void main(String[] args) {
 
