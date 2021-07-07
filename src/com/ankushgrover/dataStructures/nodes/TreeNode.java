@@ -12,7 +12,7 @@ public class TreeNode {
         val = x;
     }
 
-    public static TreeNode makeTree(int... nodes) {
+    /*public static TreeNode makeTree(int... nodes) {
 
         if (nodes.length == 0)
             return null;
@@ -42,7 +42,42 @@ public class TreeNode {
 
         return root;
 
+    }*/
+
+    public static TreeNode makeTree(Integer... nodes) {
+
+        TreeNode root = new TreeNode(nodes[0]);
+        LinkedList<TreeNode> q = new LinkedList<TreeNode>();
+
+        q.add(root);
+
+        int i = 1;
+        while (!q.isEmpty() && i < nodes.length) {
+
+            TreeNode node = q.poll();
+
+            TreeNode left = nodes[i] == null ? null : new TreeNode(nodes[i]);
+            i++;
+            TreeNode right = nodes[i] == null ? null : new TreeNode(nodes[i]);
+            i++;
+
+
+            node.left = left;
+            node.right = right;
+
+
+            if (left != null)
+                q.add(left);
+            if (right != null)
+                q.add(right);
+
+
+        }
+
+
+        return root;
     }
+
 
     public static String toString(TreeNode node) {
 
@@ -75,4 +110,8 @@ public class TreeNode {
 
     }
 
+    @Override
+    public String toString() {
+        return "TreeNode: " + val;
+    }
 }
